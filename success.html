@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>認證成功</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap');
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Noto Sans TC', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            max-width: 420px;
+            width: 100%;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgb(16 185 129);
+            overflow: hidden;
+        }
+        .header {
+            padding: 40px 30px 20px;
+            text-align: center;
+        }
+        .icon {
+            width: 110px;
+            height: 110px;
+            background: #ecfdf5;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 60px;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        .content {
+            padding: 0 30px 30px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #10b981;
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            font-size: 22px;
+            color: #10b981;
+            margin-bottom: 24px;
+        }
+        .info-box {
+            background: #ecfdf5;
+            border: 2px solid #a7f3d0;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 32px;
+            font-size: 18px;
+            color: #065f46;
+        }
+        button {
+            width: 100%;
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 18px;
+            font-size: 20px;
+            font-weight: 600;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        button:active {
+            transform: scale(0.97);
+            background: #059669;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px 30px;
+            color: #10b981;
+            opacity: 0.7;
+            font-size: 13px;
+        }
+        .countdown {
+            text-align: center;
+            padding: 10px 0;
+            font-size: 14px;
+            color: #10b981;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="header">
+            <div class="icon">✅</div>
+        </div>
+        <div class="content">
+            <h1>認證成功！</h1>
+            <p class="subtitle">您已成功連上網路</p>
+            
+            <div class="info-box">
+                🎉 歡迎使用！<br>
+                網路已正常連接
+            </div>
+
+            <button onclick="window.location.href='https://www.google.com'">
+                開始上網 →
+            </button>
+            
+            <p class="footer">TP-Link 認證系統</p>
+        </div>
+        
+        <div class="countdown">
+            頁面將在 <span id="countdown">10</span> 秒後自動跳轉
+        </div>
+    </div>
+
+    <script>
+        // 純 JavaScript 倒數（無外部依賴）
+        let timeLeft = 10;
+        const countdownEl = document.getElementById('countdown');
+        
+        const timer = setInterval(() => {
+            timeLeft--;
+            countdownEl.textContent = timeLeft;
+            
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                window.location.href = 'https://www.google.com';
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
